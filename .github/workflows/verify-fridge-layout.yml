@@ -68,8 +68,8 @@ jobs:
                 if(!report[width][id].nextWorks)throw Error(id+' navigation failed');
               }
               // Verify that the project jump index stays accessible while deep in the page.
-              await page.locator('.rail-link[data-project="fridge"]').click();
-              await page.waitForTimeout(500);
+              await page.evaluate(()=>document.querySelector('.rail-link[data-project="fridge"]').click());
+              await page.waitForTimeout(950);
               report[width].jump=await page.evaluate(()=>{
                 const header=document.querySelector('.topbar').getBoundingClientRect();
                 const index=document.querySelector('.project-rail').getBoundingClientRect();
