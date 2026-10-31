@@ -3,12 +3,32 @@ const rails = [...document.querySelectorAll('.rail-link')];
 const cards = [...document.querySelectorAll('.project-card')];
 function updateProgress(){const range=document.documentElement.scrollHeight-innerHeight;progress.style.transform=`scaleX(${range>0?scrollY/range:0})`;}
 window.addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+function setActiveProject(id){
+  rails.forEach(link=>{
+    const active=link.dataset.project===id;
+    link.classList.toggle('active',active);
+    if(active)link.setAttribute('aria-current','location');
+    else link.removeAttribute('aria-current');
+  });
+}
 if('IntersectionObserver' in window){
- const observer=new IntersectionObserver(entries=>{for(const e of entries){if(e.isIntersecting){rails.forEach(r=>r.classList.toggle('active',r.dataset.project===e.target.id));}}},{rootMargin:'-20% 0px -55% 0px'});
- cards.forEach(c=>observer.observe(c));
- const reveal=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-view');reveal.unobserve(e.target);}})},{threshold:.09});
- cards.forEach(c=>reveal.observe(c));
-}else{cards.forEach(c=>c.classList.add('in-view'));}
+  const currentObserver=new IntersectionObserver(entries=>{
+    for(const entry of entries) if(entry.isIntersecting) setActiveProject(entry.target.id);
+  },{rootMargin:'-12% 0px -66% 0px',threshold:0});
+  cards.forEach(card=>currentObserver.observe(card));
+  const revealObserver=new IntersectionObserver(entries=>{
+    for(const entry of entries) if(entry.isIntersecting){
+      entry.target.classList.add('in-view');revealObserver.unobserve(entry.target);
+    }
+  },{threshold:.04});
+  cards.forEach(card=>revealObserver.observe(card));
+}else cards.forEach(card=>card.classList.add('in-view'));
+rails.forEach(link=>link.addEventListener('click',()=>setActiveProject(link.dataset.project)));
+window.addEventListener('hashchange',()=>{
+ const id=location.hash.slice(1);
+ if(cards.some(card=>card.id===id))setActiveProject(id);
+});
+if(cards.some(card=>card.id===location.hash.slice(1)))setActiveProject(location.hash.slice(1));
 document.querySelector('#year').textContent=new Date().getFullYear();
 
 // Inspect real screenshots without leaving the project index.
@@ -23,7 +43,7 @@ viewer.querySelector('button').addEventListener('click',()=>viewer.close());
 viewer.addEventListener('click',e=>{if(e.target===viewer)viewer.close();});
 viewer.addEventListener('close',()=>imageTrigger?.focus());
 document.querySelectorAll('.doodle-game-shots img,.neon-gallery img,.fridge-screenshots img').forEach(img=>{img.classList.add('image-open');img.tabIndex=0;img.setAttribute('role','button');img.setAttribute('aria-label','Enlarge: '+img.alt);img.addEventListener('click',()=>openImage(img));img.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openImage(img);}});});
-rails.forEach(rail=>rail.addEventListener('click',()=>{rails.forEach(r=>r.removeAttribute('aria-current'));rail.setAttribute('aria-current','true');}));
+
 window.addEventListener('resize',updateProgress,{passive:true});
 
 // Shared large screenshot carousel behavior for Mini Fridge and Doodle Dolls.

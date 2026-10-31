@@ -1,4 +1,4 @@
-name: Visual verify portfolio galleries
+name: Visual verify portfolio layout
 on:
   push:
     paths:
@@ -37,6 +37,18 @@ jobs:
               report[width]={};
               const page=await browser.newPage({viewport:{width,height:900},deviceScaleFactor:1,reducedMotion:'reduce'});
               await page.goto('file://'+process.cwd()+'/index.html');
+              await page.screenshot({path:'.visual-review/home-'+width+'.png',fullPage:false});
+              report[width].navigation=await page.evaluate(()=>{
+                const bar=document.querySelector('.topbar');
+                const index=document.querySelector('.project-rail');
+                const rect=e=>{const r=e.getBoundingClientRect();return {x:r.x,y:r.y,width:r.width,height:r.height}};
+                return {header:rect(bar),index:rect(index),horizontalOverflow:document.documentElement.scrollWidth>innerWidth};
+              });
+              await page.locator('#work-title').scrollIntoViewIfNeeded();
+              await page.screenshot({path:'.visual-review/work-index-'+width+'.png',fullPage:false});
+              await page.locator('#dolls .project-content').scrollIntoViewIfNeeded();
+              await page.screenshot({path:'.visual-review/dolls-intro-'+width+'.png',fullPage:false});
+
               for (const id of ['dolls','fridge']) {
                 const loc=page.locator('#'+id);
                 await loc.scrollIntoViewIfNeeded();

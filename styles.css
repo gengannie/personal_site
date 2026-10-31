@@ -344,3 +344,184 @@
   #dolls .doodle-gallery-actions{gap:4px}
   #dolls .doodle-gallery-actions button{width:36px}
 }
+
+
+/* 2026 refinement: quieter typography, stronger hierarchy, and a usable project index. */
+:root {
+ --bg:#090909;
+ --panel:#121212;
+ --line:#30302f;
+ --text:#f4f1eb;
+ --muted:#b8b6b0;
+ --acid:#e0dccf;
+}
+html{scroll-padding-top:112px}
+body{background:var(--bg);line-height:1.6}
+.topbar{
+ position:sticky;top:0;z-index:50;
+ height:76px;min-height:76px;
+ border-bottom:1px solid #34332f;
+ background:rgba(10,10,10,.94);
+ -webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);
+}
+.topbar nav{gap:28px;font-size:13px;color:#d0cec8}
+.topbar nav a{transition:color .18s ease}
+.nav-index{font-size:9px;color:#9a978f}
+.top-contact{font-size:12px;color:#e3e1dc;border-color:#59564f}
+.hero{
+ min-height:540px;
+ padding-top:52px;
+ border-bottom:1px solid #373632;
+}
+.hero-main{padding:34px 0}
+.hero h1{
+ font-size:clamp(58px,7.25vw,108px);
+ letter-spacing:-.071em;line-height:1.08;
+}
+.hero-side{max-width:255px;margin-bottom:28px}
+.hero-side p{color:#cbc9c4;font-size:15px;line-height:1.8}
+.round-arrow{width:52px;height:52px;margin-top:24px}
+.hero-bottom{padding:18px 0;color:#aaa8a3;letter-spacing:.08em}
+.work{padding-top:76px;padding-bottom:105px}
+.section-intro{margin-bottom:44px;align-items:end}
+.section-intro h2{font-size:clamp(44px,4.8vw,68px);margin:12px 0 0}
+.section-intro p{font-size:15px;line-height:1.75;color:#c2c0b9}
+.project-layout{grid-template-columns:208px minmax(0,1fr);gap:clamp(36px,5vw,82px)}
+.project-rail{position:sticky;top:104px;align-self:start}
+.rail-kicker{font-size:10px;letter-spacing:.13em;color:#aaa79e;margin:3px 0 17px}
+.rail-link{
+ grid-template-columns:22px minmax(0,1fr) 14px;
+ padding:17px 10px;
+ border-bottom:1px solid #353531;
+ color:#aaa8a1;
+ transition:background .18s,color .18s;
+ border-radius:2px;
+}
+.rail-link strong{font-size:14px;letter-spacing:-.02em;font-weight:500}
+.rail-link span:last-child{color:#77746f}
+.rail-link.active{background:#191918;color:#f4f1eb}
+.rail-link.active strong{color:#f4f1eb;font-weight:600}
+.rail-link.active span:first-child{color:#d5d0bf}
+.rail-link:hover{background:#161615}
+.rail-link:focus-visible{outline-offset:0}
+.rail-note{margin-top:35px;font-size:17px;line-height:1.6;color:#85817a}
+.project-stack{gap:82px}
+.project-card{
+ border-top:1px solid #35342f;
+ padding-top:25px;
+ scroll-margin-top:113px;
+}
+.project-content{padding:0 0 29px}
+.project-meta{
+ color:#b6b2a9;font-size:11px;
+ letter-spacing:.085em;line-height:1.6;
+}
+.project-content h3{
+ font-size:clamp(38px,4.1vw,55px);
+ margin:14px 0 15px;line-height:1.16;
+ letter-spacing:-.055em;
+}
+.project-content h3 i{letter-spacing:-.055em}
+.project-content>p{
+ max-width:640px;font-size:16.5px;
+ color:#c9c6bf;line-height:1.78;
+}
+.project-actions{margin-top:23px;gap:16px 24px}
+.action-primary{
+ min-height:48px;
+ padding:13px 18px;
+ gap:31px;
+ font-size:13px;font-weight:700;
+ background:#e9e7df;color:#111;
+ border-radius:3px;
+}
+.action-primary:hover{background:#fff}
+.action-primary:focus-visible{outline:2px solid white;outline-offset:4px}
+.action-note{font-size:12px;color:#a4a09a}
+.text-link{font-size:13px;color:#e4e1dc}
+.footnote{color:#aaa7a0;font-size:11px;line-height:1.75}
+.about{padding:94px 0 104px;background:#101010}
+.about h2{font-size:clamp(36px,4.5vw,59px);line-height:1.23;margin-top:40px}
+.about-right p{color:#c4c1ba;font-size:16px;line-height:1.85}
+.about-links a{font-size:14px}
+.footer{color:#b0aca4}
+@media(max-width:1100px) and (min-width:761px){
+ .project-layout{grid-template-columns:175px minmax(0,1fr);gap:32px}
+ .rail-link{padding-inline:5px}
+ .hero h1{white-space:normal}
+}
+@media(max-width:760px){
+ html{scroll-padding-top:139px}
+ .topbar{
+  height:70px;min-height:70px;flex-wrap:nowrap;gap:12px;
+  padding:0 22px;
+ }
+ .wordmark{font-size:28px;white-space:nowrap}
+ .topbar nav{gap:16px;font-size:12px}
+ .topbar nav a{white-space:nowrap;min-height:44px}
+ .nav-index{display:none}
+ .top-contact{display:none}
+ .hero{min-height:0;padding-top:26px}
+ .hero-overline{font-size:9px;gap:7px}
+ .hero-main{padding:56px 0 32px}
+ .hero h1{font-size:clamp(40px,10.5vw,64px);line-height:1.13;white-space:normal}
+ .hero-side{margin:27px 0 0;max-width:none}
+ .hero-side p{font-size:14px;line-height:1.8}
+ .round-arrow{width:45px;height:45px}
+ .hero-bottom{padding:16px 0;gap:10px;font-size:9px}
+ .hero-bottom span:last-child{display:none}
+ .work{padding-top:60px;padding-bottom:80px}
+ .section-intro{display:block;margin-bottom:27px}
+ .section-intro h2{font-size:clamp(39px,10vw,53px);margin:10px 0 15px}
+ .section-intro p{font-size:14px;line-height:1.7}
+ .project-layout{display:block}
+ .project-rail{
+  display:flex;flex-wrap:nowrap;align-items:stretch;position:sticky;
+  top:70px;z-index:35;
+  width:100%;max-width:100%;height:59px;
+  overflow-x:auto;overflow-y:hidden;
+  gap:0;margin:0 0 31px;padding:0 4px;
+  white-space:nowrap;
+  background:rgba(12,12,12,.97);
+  -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
+  border-bottom:1px solid #3a3935;
+  scrollbar-width:none;
+ }
+ .project-rail::-webkit-scrollbar{display:none}
+ .rail-kicker,.rail-note{display:none}
+ .rail-link,.rail-link:first-of-type{
+  display:inline-flex;flex:0 0 auto;
+  min-height:57px;gap:8px;
+  padding:0 14px;margin:0;
+  color:#aaa69f;background:none;
+  border:0;border-bottom:2px solid transparent;border-radius:0;
+ }
+ .rail-link strong{font-size:12px}
+ .rail-link span:first-child{font-size:10px}
+ .rail-link span:last-child{display:none}
+ .rail-link.active{
+  background:#1d1c1a;color:#f5f2eb;
+  border-bottom-color:#e2ddd2;
+ }
+ .rail-link.active strong{color:#f5f2eb}
+ .project-stack{gap:60px}
+ .project-card{padding-top:21px;scroll-margin-top:143px}
+ .project-content{padding:0 0 24px}
+ .project-meta{font-size:10px}
+ .project-content h3{font-size:clamp(36px,9.5vw,46px);line-height:1.16;margin:12px 0}
+ .project-content>p{font-size:15px;line-height:1.75}
+ .project-actions{gap:13px 16px;margin-top:18px}
+ .action-primary{padding:12px 15px;font-size:12px;min-height:46px;gap:20px}
+ .action-note{font-size:11px}
+ .about{padding:75px 0 85px}
+ .about-right p{font-size:15px}
+}
+@media(max-width:390px){
+ .topbar nav{gap:11px;font-size:11px}
+ .topbar{padding-left:18px;padding-right:18px}
+ .rail-link{padding:0 11px}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ .project-card,.action-primary,.round-arrow,.rail-link{transition:none!important;transform:none!important}
+}
