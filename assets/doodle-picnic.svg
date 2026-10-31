@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300">
+<!-- Sheet: Strawberry Picnic. Every piece is drawn where it sits on the doll. -->
+<g id="picnic.dress" stroke="#6B4A3A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+<g fill="#FFFFFF"><circle cx="58" cy="224" r="7.5"/><circle cx="70" cy="227" r="7.5"/><circle cx="82" cy="229" r="7.5"/><circle cx="94" cy="230" r="7.5"/><circle cx="106" cy="230" r="7.5"/><circle cx="118" cy="229" r="7.5"/><circle cx="130" cy="227" r="7.5"/><circle cx="142" cy="224" r="7.5"/></g>
+<circle cx="75" cy="139" r="11" fill="#F7A1B5"/><circle cx="125" cy="139" r="11" fill="#F7A1B5"/>
+<path d="M80 130 L120 130 L127 160 Q141 196 149 222 Q100 234 51 222 Q59 196 73 160 Z" fill="#F7A1B5"/>
+<path d="M100 133 Q88 128 82 134 Q86 147 100 141 Z" fill="#FFFFFF"/><path d="M100 133 Q112 128 118 134 Q114 147 100 141 Z" fill="#FFFFFF"/>
+<path d="M100 144 L91 139 L91 151 Z" fill="#EF6F6C"/><path d="M100 144 L109 139 L109 151 Z" fill="#EF6F6C"/><circle cx="100" cy="144.5" r="3" fill="#EF6F6C"/>
+<g fill="#FFFFFF" stroke="none"><circle cx="86" cy="170" r="2.4"/><circle cx="104" cy="164" r="2.4"/><circle cx="118" cy="176" r="2.4"/><circle cx="76" cy="190" r="2.4"/><circle cx="96" cy="186" r="2.4"/><circle cx="114" cy="196" r="2.4"/><circle cx="132" cy="192" r="2.4"/><circle cx="66" cy="210" r="2.4"/><circle cx="86" cy="208" r="2.4"/><circle cx="106" cy="214" r="2.4"/><circle cx="126" cy="210" r="2.4"/></g>
+</g>
+<g id="picnic.bag" stroke="#6B4A3A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+<path d="M121 132 Q100 170 68 196" fill="none" stroke-width="5.6"/>
+<path d="M121 132 Q100 170 68 196" fill="none" stroke="#D9A066" stroke-width="2.6"/>
+<path d="M47 199 Q64 188 81 199 Q84 216 64 230 Q44 216 47 199 Z" fill="#EF6F6C"/>
+<path d="M54 197 L64 203 L74 197 L69 191 L64 196 L59 191 Z" fill="#8CCB86"/>
+<g fill="#FFFFFF" stroke="none"><circle cx="57" cy="208" r="1.6"/><circle cx="66" cy="206" r="1.6"/><circle cx="73" cy="210" r="1.6"/><circle cx="61" cy="216" r="1.6"/><circle cx="68" cy="218" r="1.6"/></g>
+</g>
+<g id="picnic.hat" stroke="#6B4A3A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+<ellipse cx="100" cy="52" rx="66" ry="14" fill="#F6DDA6"/>
+<path d="M64 52 Q62 13 100 12 Q138 13 136 52 Q118 60 100 60 Q82 60 64 52 Z" fill="#F6DDA6"/>
+<path d="M64 42 Q100 54 136 42 L136 52 Q118 60 100 60 Q82 60 64 52 Z" fill="#EF6F6C"/>
+<path d="M128 49 L140 42 L141 57 Z" fill="#EF6F6C"/><path d="M128 49 L118 44 L117 57 Z" fill="#EF6F6C"/><circle cx="128" cy="49.5" r="3.4" fill="#EF6F6C"/>
+</g>
+<g id="picnic.shoes" stroke="#6B4A3A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+<rect x="79" y="254" width="19" height="22" rx="3" fill="#FFFFFF"/><rect x="102" y="254" width="19" height="22" rx="3" fill="#FFFFFF"/>
+<g fill="#FFFFFF"><circle cx="81.5" cy="254" r="3.4"/><circle cx="88.5" cy="253" r="3.4"/><circle cx="95.5" cy="254" r="3.4"/><circle cx="104.5" cy="254" r="3.4"/><circle cx="111.5" cy="253" r="3.4"/><circle cx="118.5" cy="254" r="3.4"/></g>
+<ellipse cx="85" cy="281" rx="15" ry="9.5" fill="#EF6F6C"/><ellipse cx="115" cy="281" rx="15" ry="9.5" fill="#EF6F6C"/>
+<path d="M74 277 Q86 269 98 277" fill="none"/><path d="M102 277 Q114 269 126 277" fill="none"/>
+<circle cx="95.5" cy="276.5" r="1.9" fill="#FFFFFF" stroke="none"/><circle cx="104.5" cy="276.5" r="1.9" fill="#FFFFFF" stroke="none"/>
+</g>
+<g id="picnic.basket" stroke="#6B4A3A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+<path d="M126 198 Q142 160 158 198" fill="none" stroke-width="6"/>
+<path d="M126 198 Q142 160 158 198" fill="none" stroke="#E3B678" stroke-width="2.8"/>
+<path d="M124 198 Q133 186 142 197 Q151 186 160 198 Z" fill="#F7A1B5"/>
+<path d="M121 196 L163 196 L158 224 Q142 229 126 224 Z" fill="#E3B678"/>
+<path d="M123 206 L161 206 M125 215 L159 215 M133 197 L135 225 M142 197 L142 227 M151 197 L149 225" fill="none" stroke-width="1.4"/>
+</g>
+</svg>

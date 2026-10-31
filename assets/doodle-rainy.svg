@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300">
+<!-- Sheet: Rainy Day. Every piece is drawn where it sits on the doll. -->
+<g id="rainy.top" stroke="#6B4A3A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+<path d="M81 140 Q76 148 73 157" fill="none" stroke-width="24"/><path d="M119 140 Q124 148 127 157" fill="none" stroke-width="24"/>
+<path d="M81 140 Q76 148 73 157" fill="none" stroke="#FFFFFF" stroke-width="20"/><path d="M119 140 Q124 148 127 157" fill="none" stroke="#FFFFFF" stroke-width="20"/>
+<path d="M80 129 L91 129 Q100 138 109 129 L120 129 Q128 130 129 138 L129 197 Q100 203 71 197 L71 138 Q72 130 80 129 Z" fill="#FFFFFF"/>
+<path d="M72 150 L128 150 M72 163 L128 163 M72 176 L128 176 M72 189 L128 189" fill="none" stroke="#8DBDE8" stroke-width="5" stroke-linecap="butt"/>
+<path d="M80 129 L91 129 Q100 138 109 129 L120 129 Q128 130 129 138 L129 197 Q100 203 71 197 L71 138 Q72 130 80 129 Z" fill="none"/>
+</g>
+<g id="rainy.coat" stroke="#6B4A3A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+<path d="M81 140 Q70 157 67 172" fill="none" stroke-width="25"/><path d="M119 140 Q130 157 133 172" fill="none" stroke-width="25"/>
+<path d="M81 140 Q70 157 67 172" fill="none" stroke="#FFD86B" stroke-width="21"/><path d="M119 140 Q130 157 133 172" fill="none" stroke="#FFD86B" stroke-width="21"/>
+<path d="M80 128 L120 128 Q129 130 131 140 L141 214 Q100 223 59 214 L69 140 Q71 130 80 128 Z" fill="#FFD86B"/>
+<path d="M100 134 L100 219" fill="none"/>
+<path d="M100 134 L88 128 L83 138 L95 145 Z" fill="#FFF3C4"/><path d="M100 134 L112 128 L117 138 L105 145 Z" fill="#FFF3C4"/>
+<circle cx="107" cy="160" r="3.6" fill="#FFFFFF"/><circle cx="107" cy="179" r="3.6" fill="#FFFFFF"/><circle cx="107" cy="198" r="3.6" fill="#FFFFFF"/>
+<path d="M70 186 h16 v9 q-8 8 -16 0 Z" fill="#FFE99A"/><path d="M114 186 h16 v9 q-8 8 -16 0 Z" fill="#FFE99A"/>
+</g>
+<g id="rainy.hat" stroke="#6B4A3A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+<circle cx="74" cy="26" r="15" fill="#A8D8A0"/><circle cx="126" cy="26" r="15" fill="#A8D8A0"/>
+<path d="M46 70 Q42 22 100 21 Q158 22 154 70 Q128 58 100 58 Q72 58 46 70 Z" fill="#A8D8A0"/>
+<circle cx="74" cy="25" r="8.5" fill="#FFFFFF"/><circle cx="126" cy="25" r="8.5" fill="#FFFFFF"/>
+<circle cx="75.5" cy="26" r="4" fill="#4A3328" stroke="none"/><circle cx="124.5" cy="26" r="4" fill="#4A3328" stroke="none"/>
+<path d="M91 41 Q100 48 109 41" fill="none"/>
+<ellipse cx="72" cy="48" rx="7" ry="4" fill="#FF9BAA" stroke="none" opacity="0.75"/><ellipse cx="128" cy="48" rx="7" ry="4" fill="#FF9BAA" stroke="none" opacity="0.75"/>
+</g>
+<g id="rainy.boots" stroke="#6B4A3A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+<path d="M78 250 L99 250 L99 274 Q99 289 88 289 L79 289 Q69 289 71 280 Q72 273 78 271 Z" fill="#EF6F6C"/>
+<path d="M122 250 L101 250 L101 274 Q101 289 112 289 L121 289 Q131 289 129 280 Q128 273 122 271 Z" fill="#EF6F6C"/>
+<rect x="76" y="246" width="24" height="8" rx="4" fill="#FFFFFF"/><rect x="100" y="246" width="24" height="8" rx="4" fill="#FFFFFF"/>
+<path d="M76 282 Q77 278 81 277" fill="none" stroke="#FFFFFF" stroke-width="2"/><path d="M124 282 Q123 278 119 277" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+</g>
+<g id="rainy.umbrella" stroke="#6B4A3A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+<path d="M150 44 L139 178 Q138 191 148 189" fill="none" stroke-width="5.6"/>
+<path d="M150 44 L139 178 Q138 191 148 189" fill="none" stroke="#D9A066" stroke-width="2.6"/>
+<path d="M150 9 L150 3" fill="none" stroke-width="3"/>
+<path d="M104 44 Q106 9 150 9 Q194 9 196 44 Q185 35 173 44 Q162 35 150 44 Q138 35 127 44 Q116 35 104 44 Z" fill="#A9D3F2"/>
+<path d="M150 9 Q132 22 127 44 M150 9 L150 44 M150 9 Q168 22 173 44" fill="none" stroke-width="1.6"/>
+</g>
+</svg>
