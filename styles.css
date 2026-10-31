@@ -77,3 +77,14 @@
   .fridge-screenshots img{max-height:210px}
   .fridge-screenshots figcaption{font-size:10px}
 }
+
+/* Mini Fridge: compact, centered previews instead of full-width screenshots. */
+.fridge-screenshots{width:100%;max-width:650px;margin-inline:auto;gap:14px;padding:23px 25px 20px}
+.fridge-screenshots figure{min-width:0}
+.fridge-screenshots img{max-height:150px;aspect-ratio:16/11;object-fit:contain}
+.fridge-screenshots figcaption{padding-top:9px;font-size:9px}
+@media(max-width:760px){
+  .fridge-screenshots{max-width:100%;gap:12px;padding:18px 16px;scroll-padding-inline:16px}
+  .fridge-screenshots figure{flex:0 0 64%;max-width:225px}
+  .fridge-screenshots img{max-height:145px}
+}
