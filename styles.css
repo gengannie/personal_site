@@ -218,3 +218,66 @@
     width:100%;height:auto;aspect-ratio:16/10;max-height:none;
   }
 }
+
+/* Final Mini Fridge gallery: all three captures get the SAME large viewport. */
+#fridge .fridge-screenshots{
+ display:flex;flex-wrap:nowrap;justify-content:flex-start;align-items:stretch;
+ gap:0;width:100%;max-width:none;min-width:0;margin:0;
+ padding:0;overflow-x:auto;overflow-y:hidden;
+ border:1px solid #25283a;border-radius:6px 6px 0 0;
+ background:#0b0e1d;scroll-snap-type:x mandatory;
+ overscroll-behavior-x:contain;scrollbar-width:none;
+}
+#fridge .fridge-screenshots::-webkit-scrollbar{display:none}
+#fridge .fridge-screenshots figure,
+#fridge .fridge-screenshots figure:first-child{
+ display:flex;flex-direction:column;flex:0 0 100%;width:100%;max-width:100%;
+ min-width:0;box-sizing:border-box;
+ margin:0;padding:14px;overflow:hidden;
+ background:#0b0e1d;border:0;border-radius:0;
+ scroll-snap-align:center;
+}
+#fridge .fridge-screenshots img{
+ display:block;width:100%;height:auto;max-height:640px;min-height:0;
+ aspect-ratio:16/10;object-fit:contain;object-position:center;
+ background:#0b0e1d;
+}
+#fridge .fridge-screenshots figcaption{
+ height:38px;box-sizing:border-box;padding:10px 4px 0;margin:0;
+ font-size:10px;letter-spacing:.13em;
+ background:none;color:#c7c8d3;justify-content:flex-start;
+}
+#fridge .fridge-gallery-controls{
+ display:flex;justify-content:space-between;align-items:center;
+ gap:12px;min-height:52px;padding:0 20px;
+ color:#9999ac;border:1px solid #25283a;border-top:0;
+ border-radius:0 0 6px 6px;background:#101321;
+}
+#fridge .fridge-gallery-hint{font-size:9px;letter-spacing:.11em}
+#fridge .fridge-gallery-actions{display:flex;align-items:center;gap:15px}
+#fridge .fridge-gallery-count{min-width:52px;font-size:11px;text-align:center;white-space:nowrap}
+#fridge .fridge-gallery-actions button{
+ display:grid;place-items:center;width:40px;height:38px;
+ border:0;background:transparent;color:#eeeef7;
+ font-size:22px;cursor:pointer;
+}
+#fridge .fridge-gallery-actions button:hover:not(:disabled){background:#252739}
+#fridge .fridge-gallery-actions button:disabled{opacity:.25;cursor:default}
+#fridge .fridge-gallery-actions button:focus-visible{outline:2px solid #c5c6e8}
+@media(max-width:760px){
+ #fridge .fridge-screenshots{
+  display:flex;gap:0;width:100%;max-width:none;
+  padding:0;scroll-snap-type:x mandatory;
+ }
+ #fridge .fridge-screenshots figure,
+ #fridge .fridge-screenshots figure:first-child{
+  flex:0 0 100%;width:100%;max-width:100%;padding:10px;
+ }
+ #fridge .fridge-screenshots img{
+  width:100%;max-height:none;height:auto;aspect-ratio:16/10;
+ }
+ #fridge .fridge-gallery-controls{padding:0 10px}
+ #fridge .fridge-gallery-hint{font-size:8px;letter-spacing:.04em}
+ #fridge .fridge-gallery-actions{gap:4px}
+ #fridge .fridge-gallery-actions button{width:36px}
+}
