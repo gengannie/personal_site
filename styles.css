@@ -166,3 +166,55 @@
   }
   .fridge-screenshots img{height:auto;max-height:none;aspect-ratio:16 / 10}
 }
+
+/* Mini Fridge: editorial landscape gallery — actual gameplay must be readable. */
+#fridge .fridge-screenshots{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  width:100%;max-width:none;margin:0;
+  gap:16px;
+  padding:20px;
+  align-items:stretch;
+  overflow:visible;
+  background:#0b0e1d;
+  border:1px solid #202337;
+  border-radius:6px;
+}
+#fridge .fridge-screenshots figure{
+  display:flex;flex-direction:column;flex:none;
+  width:100%;max-width:none;min-width:0;
+  margin:0;padding:0;border:0;border-radius:3px;
+  overflow:hidden;background:#111427;
+}
+#fridge .fridge-screenshots figure:first-child{
+  grid-column:1 / -1;
+}
+#fridge .fridge-screenshots img{
+  display:block;width:100%;height:auto;min-height:0;max-height:none;
+  aspect-ratio:16 / 10;object-fit:contain;object-position:center;
+  background:#0b0e1d;
+  transform:none;
+}
+#fridge .fridge-screenshots figcaption{
+  box-sizing:border-box;position:static;
+  display:flex;align-items:center;justify-content:flex-start;
+  padding:11px 13px;height:38px;margin:0;
+  font-size:10px;letter-spacing:.09em;color:#c5c5d1;
+  background:#101321;
+}
+@media(max-width:760px){
+  #fridge .fridge-screenshots{
+    display:flex;flex-wrap:nowrap;justify-content:flex-start;
+    align-items:stretch;gap:12px;width:100%;
+    padding:12px;overflow-x:auto;scroll-snap-type:x mandatory;
+    scroll-padding-inline:12px;
+  }
+  #fridge .fridge-screenshots figure,
+  #fridge .fridge-screenshots figure:first-child{
+    flex:0 0 92%;width:92%;max-width:none;
+    scroll-snap-align:start;
+  }
+  #fridge .fridge-screenshots img{
+    width:100%;height:auto;aspect-ratio:16/10;max-height:none;
+  }
+}
