@@ -67,6 +67,20 @@ jobs:
                 report[width][id].nextWorks=(await counter.textContent()).startsWith('02');
                 if(!report[width][id].nextWorks)throw Error(id+' navigation failed');
               }
+              // Verify that the project jump index stays accessible while deep in the page.
+              await page.locator('.rail-link[data-project="fridge"]').click();
+              await page.waitForTimeout(500);
+              report[width].jump=await page.evaluate(()=>{
+                const header=document.querySelector('.topbar').getBoundingClientRect();
+                const index=document.querySelector('.project-rail').getBoundingClientRect();
+                const target=document.querySelector('#fridge').getBoundingClientRect();
+                const active=document.querySelector('.rail-link[data-project="fridge"]');
+                return {hash:location.hash,headerTop:header.top,headerBottom:header.bottom,indexTop:index.top,indexBottom:index.bottom,targetTop:target.top,active:active.getAttribute('aria-current'),horizontalOverflow:document.documentElement.scrollWidth>innerWidth};
+              });
+              await page.screenshot({path:'.visual-review/jump-fridge-'+width+'.png',fullPage:false});
+              const jump=report[width].jump;
+              if(jump.hash!=='#fridge'||jump.active!=='location'||jump.horizontalOverflow)throw Error('Jump to Mini Fridge failed '+JSON.stringify(jump));
+              if(width===390 && Math.abs(jump.indexTop-70)>4)throw Error('Mobile project index is not sticky '+JSON.stringify(jump));
               await page.close();
             }
             fs.writeFileSync('.visual-review/geometry.json',JSON.stringify(report,null,2));
