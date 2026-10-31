@@ -138,3 +138,31 @@
     height:var(--portfolio-shot-height);max-height:none;aspect-ratio:auto;object-fit:contain;
   }
 }
+
+/* Mini Fridge uses landscape gameplay captures: make these larger than portrait galleries. */
+.fridge-screenshots{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  justify-content:stretch;align-items:start;
+  width:100%;max-width:none;margin:0;
+  gap:18px;padding:28px 28px 24px;overflow:visible;
+}
+.fridge-screenshots figure{
+  flex:none;width:100%;max-width:none;min-width:0;
+  background:transparent;border:0;
+}
+.fridge-screenshots img{
+  display:block;width:100%;height:auto;max-height:none;
+  aspect-ratio:16 / 10;object-fit:contain;object-position:center;
+}
+.fridge-screenshots figcaption{height:34px;padding:10px 4px 0;font-size:10px}
+@media(max-width:760px){
+  .fridge-screenshots{
+    display:flex;flex-wrap:nowrap;justify-content:flex-start;
+    gap:14px;padding:16px 14px 18px;
+    overflow-x:auto;scroll-snap-type:x mandatory;
+  }
+  .fridge-screenshots figure{
+    flex:0 0 84%;width:84%;max-width:420px;scroll-snap-align:center;
+  }
+  .fridge-screenshots img{height:auto;max-height:none;aspect-ratio:16 / 10}
+}
