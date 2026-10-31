@@ -281,3 +281,66 @@
  #fridge .fridge-gallery-actions{gap:4px}
  #fridge .fridge-gallery-actions button{width:36px}
 }
+
+/* Doodle Dolls: use the same spacious, one-image-at-a-time gallery as Mini Fridge.
+   Its screenshots retain a white canvas, rather than inheriting the dark fridge palette. */
+#dolls .doodle-game-shots{
+  display:flex;flex-wrap:nowrap;align-items:stretch;justify-content:flex-start;
+  width:100%;max-width:none;min-width:0;margin:0;padding:0;gap:0;
+  overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;
+  overscroll-behavior-x:contain;scrollbar-width:none;
+  background:#fff;border:1px solid #e4e1db;border-radius:6px 6px 0 0;
+}
+#dolls .doodle-game-shots::-webkit-scrollbar{display:none}
+#dolls .doodle-game-shots figure,
+#dolls .doodle-game-shots figure:first-child{
+  display:flex;flex-direction:column;flex:0 0 100%;width:100%;max-width:100%;
+  min-width:0;height:auto;box-sizing:border-box;margin:0;padding:14px;
+  align-self:stretch;overflow:hidden;border:0;border-radius:0;
+  scroll-snap-align:center;background:#fff;
+}
+#dolls .doodle-game-shots img{
+  display:block;width:100%;height:auto;max-height:640px;min-height:0;
+  box-sizing:border-box;aspect-ratio:16 / 10;
+  object-fit:contain;object-position:center;background:#fff;transform:none;
+}
+#dolls .doodle-game-shots figcaption{
+  position:static;display:flex;align-items:center;justify-content:flex-start;
+  width:100%;height:38px;margin:0;padding:10px 4px 0;
+  box-sizing:border-box;font-size:10px;line-height:1.2;
+  letter-spacing:.13em;text-align:left;color:#5d5857;background:#fff;
+}
+#dolls .doodle-gallery-controls{
+  display:flex;justify-content:space-between;align-items:center;
+  gap:12px;min-height:52px;padding:0 20px;
+  color:#6d6764;border:1px solid #e4e1db;border-top:0;
+  border-radius:0 0 6px 6px;background:#f6f4f0;
+}
+#dolls .doodle-gallery-hint{font-size:9px;letter-spacing:.11em}
+#dolls .doodle-gallery-actions{display:flex;align-items:center;gap:15px}
+#dolls .doodle-gallery-count{min-width:52px;font-size:11px;text-align:center;white-space:nowrap}
+#dolls .doodle-gallery-actions button{
+  display:grid;place-items:center;width:40px;height:38px;
+  border:0;background:transparent;color:#272321;
+  font-size:22px;cursor:pointer;
+}
+#dolls .doodle-gallery-actions button:hover:not(:disabled){background:#e9e6e0}
+#dolls .doodle-gallery-actions button:disabled{opacity:.25;cursor:default}
+#dolls .doodle-gallery-actions button:focus-visible{outline:2px solid #45413b}
+@media(max-width:760px){
+  #dolls .doodle-game-shots{
+    display:flex;gap:0;width:100%;max-width:none;
+    padding:0;scroll-snap-type:x mandatory;
+  }
+  #dolls .doodle-game-shots figure,
+  #dolls .doodle-game-shots figure:first-child{
+    flex:0 0 100%;width:100%;max-width:100%;padding:10px;
+  }
+  #dolls .doodle-game-shots img{
+    width:100%;max-height:none;height:auto;aspect-ratio:16/10;
+  }
+  #dolls .doodle-gallery-controls{padding:0 10px}
+  #dolls .doodle-gallery-hint{font-size:8px;letter-spacing:.04em}
+  #dolls .doodle-gallery-actions{gap:4px}
+  #dolls .doodle-gallery-actions button{width:36px}
+}

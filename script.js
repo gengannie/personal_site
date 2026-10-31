@@ -26,30 +26,36 @@ document.querySelectorAll('.doodle-game-shots img,.neon-gallery img,.fridge-scre
 rails.forEach(rail=>rail.addEventListener('click',()=>{rails.forEach(r=>r.removeAttribute('aria-current'));rail.setAttribute('aria-current','true');}));
 window.addEventListener('resize',updateProgress,{passive:true});
 
-// Mini Fridge: one large screenshot at a time, with keyboard-friendly controls.
-(() => {
- const root=document.getElementById('fridge');
- const track=root?.querySelector('.fridge-screenshots');
- const count=root?.querySelector('.fridge-gallery-count');
- const prev=root?.querySelector('.fridge-prev');
- const next=root?.querySelector('.fridge-next');
+// Shared large screenshot carousel behavior for Mini Fridge and Doodle Dolls.
+function initScreenshotGallery(project, prefix) {
+ const root=document.getElementById(project);
+ const track=root?.querySelector(project==='dolls'?'.doodle-game-shots':'.fridge-screenshots');
+ const count=root?.querySelector('.'+prefix+'-gallery-count');
+ const prev=root?.querySelector('.'+prefix+'-prev');
+ const next=root?.querySelector('.'+prefix+'-next');
  if(!track||!prev||!next||!count)return;
  const frames=[...track.querySelectorAll('figure')];
  let index=0;
  const refresh=()=>{
-  index=Math.max(0,Math.min(frames.length-1,Math.round(track.scrollLeft/track.clientWidth)));
+  const newIndex=Math.max(0,Math.min(frames.length-1,Math.round(track.scrollLeft/Math.max(1,track.clientWidth))));
+  index=newIndex;
   count.textContent=String(index+1).padStart(2,'0')+' / '+String(frames.length).padStart(2,'0');
   prev.disabled=index===0;
   next.disabled=index===frames.length-1;
  };
  const go=direction=>{
   const target=Math.max(0,Math.min(frames.length-1,index+direction));
+  index=target;
   track.scrollTo({left:target*track.clientWidth,behavior:'smooth'});
-  index=target;refresh();
+  count.textContent=String(index+1).padStart(2,'0')+' / '+String(frames.length).padStart(2,'0');
+  prev.disabled=index===0;
+  next.disabled=index===frames.length-1;
  };
  prev.addEventListener('click',()=>go(-1));
  next.addEventListener('click',()=>go(1));
  track.addEventListener('scroll',refresh,{passive:true});
  window.addEventListener('resize',refresh,{passive:true});
  refresh();
-})();
+}
+initScreenshotGallery('fridge','fridge');
+initScreenshotGallery('dolls','doodle');
