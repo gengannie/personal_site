@@ -22,6 +22,6 @@ function openImage(img){imageTrigger=img;viewer.querySelector('img').src=img.src
 viewer.querySelector('button').addEventListener('click',()=>viewer.close());
 viewer.addEventListener('click',e=>{if(e.target===viewer)viewer.close();});
 viewer.addEventListener('close',()=>imageTrigger?.focus());
-document.querySelectorAll('.doodle-game-shots img,.neon-gallery img').forEach(img=>{img.classList.add('image-open');img.tabIndex=0;img.setAttribute('role','button');img.setAttribute('aria-label','Enlarge: '+img.alt);img.addEventListener('click',()=>openImage(img));img.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openImage(img);}});});
+document.querySelectorAll('.doodle-game-shots img,.neon-gallery img,.fridge-screenshots img').forEach(img=>{img.classList.add('image-open');img.tabIndex=0;img.setAttribute('role','button');img.setAttribute('aria-label','Enlarge: '+img.alt);img.addEventListener('click',()=>openImage(img));img.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openImage(img);}});});
 rails.forEach(rail=>rail.addEventListener('click',()=>{rails.forEach(r=>r.removeAttribute('aria-current'));rail.setAttribute('aria-current','true');}));
 window.addEventListener('resize',updateProgress,{passive:true});

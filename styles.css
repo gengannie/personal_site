@@ -31,3 +31,6 @@
 .dolls-art .doodle-game-shots figure{height:auto;justify-content:flex-start;align-self:start}
 .dolls-art .doodle-game-shots img{display:block;width:100%;height:auto;max-height:none;aspect-ratio:auto;flex:none}
 .dolls-art .doodle-game-shots figcaption{flex:none;margin-top:8px}
+
+/* Actual demo captures: preserve each screenshot's natural proportions. */
+.fridge-screenshots{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:20px;background:#0b0e1d}.fridge-screenshots figure{margin:0;min-width:0;align-self:start}.fridge-screenshots figure:first-child{grid-column:1/-1}.fridge-screenshots img{display:block;width:100%;height:auto;aspect-ratio:auto}.fridge-screenshots figcaption{padding:12px 0 4px;font-size:10px;letter-spacing:1px;color:#bbb}.fridge-screenshots img:focus-visible{outline:2px solid white}@media(max-width:600px){.fridge-screenshots{grid-template-columns:1fr;padding:12px;gap:20px}.fridge-screenshots figure:first-child{grid-column:auto}}
