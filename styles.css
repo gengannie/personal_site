@@ -32,5 +32,48 @@
 .dolls-art .doodle-game-shots img{display:block;width:100%;height:auto;max-height:none;aspect-ratio:auto;flex:none}
 .dolls-art .doodle-game-shots figcaption{flex:none;margin-top:8px}
 
-/* Actual demo captures: preserve each screenshot's natural proportions. */
-.fridge-screenshots{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:20px;background:#0b0e1d}.fridge-screenshots figure{margin:0;min-width:0;align-self:start}.fridge-screenshots figure:first-child{grid-column:1/-1}.fridge-screenshots img{display:block;width:100%;height:auto;aspect-ratio:auto}.fridge-screenshots figcaption{padding:12px 0 4px;font-size:10px;letter-spacing:1px;color:#bbb}.fridge-screenshots img:focus-visible{outline:2px solid white}@media(max-width:600px){.fridge-screenshots{grid-template-columns:1fr;padding:12px;gap:20px}.fridge-screenshots figure:first-child{grid-column:auto}}
+/* Compact demo gallery; full-resolution captures open in the image viewer. */
+.fridge-screenshots{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  align-items:start;
+  gap:16px;
+  padding:24px 20px 20px;
+  background:#0b0e1d;
+  border-radius:3px;
+}
+.fridge-screenshots figure{margin:0;min-width:0}
+.fridge-screenshots img{
+  display:block;
+  width:100%;
+  height:auto;
+  aspect-ratio:16/11;
+  max-height:230px;
+  object-fit:contain;
+  object-position:center;
+}
+.fridge-screenshots figcaption{
+  padding:14px 0 0;
+  font-size:9px;
+  line-height:1.5;
+  letter-spacing:1px;
+  color:#bbb;
+}
+.fridge-screenshots img:focus-visible{outline:2px solid white;outline-offset:3px}
+@media(max-width:760px){
+  .fridge-screenshots{
+    display:flex;
+    gap:16px;
+    padding:18px 14px;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    scroll-padding-inline:14px;
+  }
+  .fridge-screenshots figure{
+    flex:0 0 82%;
+    max-width:320px;
+    scroll-snap-align:start;
+  }
+  .fridge-screenshots img{max-height:210px}
+  .fridge-screenshots figcaption{font-size:10px}
+}
