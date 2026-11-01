@@ -6,6 +6,7 @@ on:
       - index.html
       - script.js
       - .github/workflows/verify-fridge-layout.yml
+      - 'assets/staridol-*.webp'
 permissions:
   contents: write
 jobs:
@@ -67,6 +68,26 @@ jobs:
                 report[width][id].nextWorks=(await counter.textContent()).startsWith('02');
                 if(!report[width][id].nextWorks)throw Error(id+' navigation failed');
               }
+              // Staridol's desktop screenshots must load, fit the container and advance.
+              const star=page.locator('#staridol');
+              await star.scrollIntoViewIfNeeded();
+              await star.locator('.staridol-screenshots img').first().evaluate(img=>img.decode());
+              await star.screenshot({path:'.visual-review/staridol-section-'+width+'.png'});
+              report[width].staridol=await star.locator('.staridol-screenshots').evaluate(track=>{
+                const images=[...track.querySelectorAll('img')];
+                return {frames:images.length,loaded:images[0].naturalWidth>0,
+                  imageWidth:images[0].getBoundingClientRect().width,
+                  frameWidth:track.getBoundingClientRect().width,
+                  overflow:document.documentElement.scrollWidth>innerWidth};
+              });
+              if(report[width].staridol.frames!==2||!report[width].staridol.loaded||
+                 report[width].staridol.overflow||
+                 Math.abs(report[width].staridol.imageWidth-report[width].staridol.frameWidth)>2)
+                throw Error('Staridol gallery layout failed '+JSON.stringify(report[width].staridol));
+              await star.locator('.staridol-next').click();
+              await page.waitForFunction(()=>document.querySelector('#staridol .staridol-gallery-count').textContent.startsWith('02'));
+              report[width].staridol.nextWorks=(await star.locator('.staridol-gallery-count').textContent()).startsWith('02');
+              if(!report[width].staridol.nextWorks)throw Error('Staridol gallery navigation failed');
               // Verify that the project jump index stays accessible while deep in the page.
               await page.evaluate(()=>document.querySelector('.rail-link[data-project="fridge"]').click());
               await page.waitForTimeout(950);

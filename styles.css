@@ -525,3 +525,21 @@ body{background:var(--bg);line-height:1.6}
  html{scroll-behavior:auto}
  .project-card,.action-primary,.round-arrow,.rail-link{transition:none!important;transform:none!important}
 }
+
+
+/* Staridol — landscape captures displayed at full card width, never cropped. */
+#staridol .staridol-gallery-shell{max-width:100%;min-width:0;border:1px solid #3c3635;border-radius:5px;overflow:hidden;background:#141213}
+#staridol .staridol-screenshots{display:flex;flex-wrap:nowrap;gap:0;width:100%;min-width:0;margin:0;padding:0;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:none}
+#staridol .staridol-screenshots::-webkit-scrollbar{display:none}
+#staridol .staridol-screenshots figure{display:flex;flex-direction:column;flex:0 0 100%;width:100%;min-width:0;max-width:100%;box-sizing:border-box;margin:0;padding:0;scroll-snap-align:start;scroll-snap-stop:always;background:#f7f1ed}
+#staridol .staridol-screenshots img{display:block;width:100%;height:auto;max-height:none;aspect-ratio:auto;object-fit:contain;object-position:top center;background:#f7f1ed}
+#staridol .staridol-screenshots figcaption{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:43px;padding:11px 16px;background:#171416;color:#ded8d4;font-family:'Manrope',sans-serif;font-size:9px;font-weight:700;letter-spacing:.1em;line-height:1.5}
+#staridol .staridol-screenshots figcaption span:last-child{color:#928583;font-weight:500}
+#staridol .staridol-gallery-controls{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:58px;padding:0 17px;background:#0d0c0d;color:#b6a9a6}
+#staridol .staridol-gallery-hint,#staridol .staridol-gallery-count{font-family:'Manrope',sans-serif;font-size:9px;letter-spacing:.1em}
+#staridol .staridol-gallery-actions{display:flex;align-items:center;gap:13px}
+#staridol .staridol-gallery-actions button{display:grid;place-items:center;width:39px;min-width:39px;height:39px;padding:0;border:1px solid #4c4145;background:transparent;color:#f5eeee;cursor:pointer}
+#staridol .staridol-gallery-actions button:hover:not(:disabled){background:#322930}
+#staridol .staridol-gallery-actions button:disabled{opacity:.3;cursor:default}
+#staridol .staridol-gallery-actions button:focus-visible{outline:2px solid #ebe1df;outline-offset:2px}
+@media(max-width:760px){#staridol .staridol-screenshots figcaption{min-height:41px;padding:10px 12px;font-size:8px}#staridol .staridol-gallery-controls{min-height:58px;padding:0 11px;gap:7px}#staridol .staridol-gallery-actions{gap:6px}#staridol .staridol-gallery-hint{font-size:8px;letter-spacing:.03em}#staridol .staridol-gallery-actions button{width:36px;min-width:36px;height:39px}#staridol .staridol-gallery-count{font-size:8px}}

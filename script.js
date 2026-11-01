@@ -42,14 +42,14 @@ function openImage(img){imageTrigger=img;viewer.querySelector('img').src=img.src
 viewer.querySelector('button').addEventListener('click',()=>viewer.close());
 viewer.addEventListener('click',e=>{if(e.target===viewer)viewer.close();});
 viewer.addEventListener('close',()=>imageTrigger?.focus());
-document.querySelectorAll('.doodle-game-shots img,.neon-gallery img,.fridge-screenshots img').forEach(img=>{img.classList.add('image-open');img.tabIndex=0;img.setAttribute('role','button');img.setAttribute('aria-label','Enlarge: '+img.alt);img.addEventListener('click',()=>openImage(img));img.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openImage(img);}});});
+document.querySelectorAll('.doodle-game-shots img,.neon-gallery img,.fridge-screenshots img,.staridol-screenshots img').forEach(img=>{img.classList.add('image-open');img.tabIndex=0;img.setAttribute('role','button');img.setAttribute('aria-label','Enlarge: '+img.alt);img.addEventListener('click',()=>openImage(img));img.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openImage(img);}});});
 
 window.addEventListener('resize',updateProgress,{passive:true});
 
 // Shared large screenshot carousel behavior for Mini Fridge and Doodle Dolls.
 function initScreenshotGallery(project, prefix) {
  const root=document.getElementById(project);
- const track=root?.querySelector(project==='dolls'?'.doodle-game-shots':'.fridge-screenshots');
+ const track=root?.querySelector(project==='dolls'?'.doodle-game-shots':project==='staridol'?'.staridol-screenshots':'.fridge-screenshots');
  const count=root?.querySelector('.'+prefix+'-gallery-count');
  const prev=root?.querySelector('.'+prefix+'-prev');
  const next=root?.querySelector('.'+prefix+'-next');
@@ -79,3 +79,4 @@ function initScreenshotGallery(project, prefix) {
 }
 initScreenshotGallery('fridge','fridge');
 initScreenshotGallery('dolls','doodle');
+initScreenshotGallery('staridol','staridol');
