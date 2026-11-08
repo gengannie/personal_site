@@ -654,6 +654,8 @@ button {
   border: 1px solid var(--border);
   padding: 3px 10px;
   border-radius: var(--radius-pill);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .project-content h3 {
@@ -918,8 +920,9 @@ button {
   background: #f5f5f7;
 }
 
-/* 3. Mini Fridge Deep Space Gallery */
-#fridge .fridge-screenshots {
+/* 3. Mini Fridge Deep Space Gallery & Denier Lab Velvet Studio Gallery */
+#fridge .fridge-screenshots,
+#denier .denier-screenshots {
   display: flex;
   flex-wrap: nowrap;
   justify-content: flex-start;
@@ -940,11 +943,17 @@ button {
   scrollbar-width: none;
 }
 
-#fridge .fridge-screenshots::-webkit-scrollbar {
+#denier .denier-screenshots {
+  background: #1a1723;
+}
+
+#fridge .fridge-screenshots::-webkit-scrollbar,
+#denier .denier-screenshots::-webkit-scrollbar {
   display: none;
 }
 
-#fridge .fridge-screenshots figure {
+#fridge .fridge-screenshots figure,
+#denier .denier-screenshots figure {
   display: flex;
   flex-direction: column;
   flex: 0 0 100%;
@@ -956,10 +965,16 @@ button {
   padding: 16px 16px 12px;
   overflow: hidden;
   background: #0b0e1d;
-  scroll-snap-align: center;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
-#fridge .fridge-screenshots img {
+#denier .denier-screenshots figure {
+  background: #1a1723;
+}
+
+#fridge .fridge-screenshots img,
+#denier .denier-screenshots img {
   display: block;
   width: 100%;
   height: auto;
@@ -971,9 +986,16 @@ button {
   border-radius: 10px;
 }
 
-#fridge .fridge-screenshots figcaption {
+#denier .denier-screenshots img {
+  background: #1a1723;
+}
+
+#fridge .fridge-screenshots figcaption,
+#denier .denier-screenshots figcaption {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 12px;
   height: 34px;
   padding: 8px 4px 0;
   margin: 0;
@@ -984,7 +1006,13 @@ button {
   color: #9898b0;
 }
 
-#fridge .fridge-gallery-controls {
+#denier .denier-screenshots figcaption span:last-child {
+  color: #e07a9a;
+  font-weight: 500;
+}
+
+#fridge .fridge-gallery-controls,
+#denier .denier-gallery-controls {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -998,8 +1026,14 @@ button {
   background: #101324;
 }
 
-/* Shared Apple Pill Gallery Controls (Staridol, Doodle Dolls, Mini Fridge) */
+#denier .denier-gallery-controls {
+  background: #14121c;
+  color: #b5afc4;
+}
+
+/* Shared Apple Pill Gallery Controls (Staridol, Denier Lab, Doodle Dolls, Mini Fridge) */
 .staridol-gallery-hint,
+.denier-gallery-hint,
 .doodle-gallery-hint,
 .fridge-gallery-hint {
   font-family: var(--font-mono);
@@ -1009,6 +1043,7 @@ button {
 }
 
 .staridol-gallery-actions,
+.denier-gallery-actions,
 .doodle-gallery-actions,
 .fridge-gallery-actions {
   display: flex;
@@ -1017,6 +1052,7 @@ button {
 }
 
 .staridol-gallery-count,
+.denier-gallery-count,
 .doodle-gallery-count,
 .fridge-gallery-count {
   min-width: 54px;
@@ -1029,6 +1065,7 @@ button {
 }
 
 .staridol-gallery-actions button,
+.denier-gallery-actions button,
 .fridge-gallery-actions button {
   display: grid;
   place-items: center;
@@ -1046,6 +1083,7 @@ button {
 }
 
 .staridol-gallery-actions button:hover:not(:disabled),
+.denier-gallery-actions button:hover:not(:disabled),
 .fridge-gallery-actions button:hover:not(:disabled) {
   background: rgba(255, 255, 255, 0.18);
   transform: scale(1.05);
@@ -1074,6 +1112,7 @@ button {
 }
 
 .staridol-gallery-actions button:disabled,
+.denier-gallery-actions button:disabled,
 .doodle-gallery-actions button:disabled,
 .fridge-gallery-actions button:disabled {
   opacity: 0.28;
@@ -1790,11 +1829,13 @@ button {
   }
 
   #dolls .doodle-game-shots figure,
+  #denier .denier-screenshots figure,
   #fridge .fridge-screenshots figure {
     padding: 10px;
   }
 
   #staridol .staridol-gallery-controls,
+  #denier .denier-gallery-controls,
   #dolls .doodle-gallery-controls,
   #fridge .fridge-gallery-controls {
     padding: 0 12px;
@@ -1802,6 +1843,7 @@ button {
   }
 
   .staridol-gallery-hint,
+  .denier-gallery-hint,
   .doodle-gallery-hint,
   .fridge-gallery-hint {
     font-size: 8.5px;

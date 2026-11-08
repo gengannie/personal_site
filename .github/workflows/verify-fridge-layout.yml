@@ -7,6 +7,7 @@ on:
       - script.js
       - .github/workflows/verify-fridge-layout.yml
       - 'assets/staridol-*.webp'
+      - 'assets/denier-*.webp'
 permissions:
   contents: write
 jobs:
@@ -50,21 +51,23 @@ jobs:
               await page.locator('#dolls .project-content').scrollIntoViewIfNeeded();
               await page.screenshot({path:'.visual-review/dolls-intro-'+width+'.png',fullPage:false});
 
-              for (const id of ['dolls','fridge']) {
+              for (const id of ['denier','dolls','fridge']) {
+                const prefix=id==='dolls'?'doodle':id;
+                const trackSel=id==='dolls'?'.doodle-game-shots':'.'+id+'-screenshots';
                 const loc=page.locator('#'+id);
                 await loc.scrollIntoViewIfNeeded();
-                const gallery=loc.locator(id==='dolls'?'.doodle-game-shots':'.fridge-screenshots');
+                const gallery=loc.locator(trackSel);
                 await gallery.locator('img').first().evaluate(img=>img.decode());
                 await loc.screenshot({path:'.visual-review/'+id+'-section-'+width+'.png'});
-                report[width][id]=await page.evaluate(id=>{
+                report[width][id]=await page.evaluate(({id,trackSel})=>{
                   const rect=e=>{let r=e.getBoundingClientRect();return {x:r.x,y:r.y,width:r.width,height:r.height}};
-                  const root=document.getElementById(id),gallery=root.querySelector(id==='dolls'?'.doodle-game-shots':'.fridge-screenshots');
+                  const root=document.getElementById(id),gallery=root.querySelector(trackSel);
                   return {card:rect(root),gallery:rect(gallery),images:[...gallery.querySelectorAll('img')].map(rect),horizontalOverflow:document.documentElement.scrollWidth>innerWidth};
-                },id);
-                const next=loc.locator(id==='dolls'?'.doodle-next':'.fridge-next');
+                },{id,trackSel});
+                const next=loc.locator('.'+prefix+'-next');
                 await next.click();
-                const counter=loc.locator(id==='dolls'?'.doodle-gallery-count':'.fridge-gallery-count');
-                await page.waitForFunction(({id})=>document.querySelector('#'+id+' .'+(id==='dolls'?'doodle':'fridge')+'-gallery-count').textContent.startsWith('02'),{id});
+                const counter=loc.locator('.'+prefix+'-gallery-count');
+                await page.waitForFunction(({id,prefix})=>document.querySelector('#'+id+' .'+prefix+'-gallery-count').textContent.startsWith('02'),{id,prefix});
                 report[width][id].nextWorks=(await counter.textContent()).startsWith('02');
                 if(!report[width][id].nextWorks)throw Error(id+' navigation failed');
               }
