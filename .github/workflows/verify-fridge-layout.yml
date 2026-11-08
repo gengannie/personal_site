@@ -6,6 +6,7 @@ on:
       - index.html
       - script.js
       - .github/workflows/verify-fridge-layout.yml
+      - 'assets/baylife-*.webp'
       - 'assets/staridol-*.webp'
       - 'assets/denier-*.webp'
 permissions:
@@ -51,7 +52,7 @@ jobs:
               await page.locator('#dolls .project-content').scrollIntoViewIfNeeded();
               await page.screenshot({path:'.visual-review/dolls-intro-'+width+'.png',fullPage:false});
 
-              for (const id of ['denier','dolls','fridge']) {
+              for (const id of ['baylife','denier','dolls','fridge']) {
                 const prefix=id==='dolls'?'doodle':id;
                 const trackSel=id==='dolls'?'.doodle-game-shots':'.'+id+'-screenshots';
                 const loc=page.locator('#'+id);

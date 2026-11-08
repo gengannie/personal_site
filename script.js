@@ -92,7 +92,7 @@ function openImage(img) {
 viewer.querySelector('button').addEventListener('click', () => viewer.close());
 viewer.addEventListener('click', e => { if (e.target === viewer) viewer.close(); });
 viewer.addEventListener('close', () => imageTrigger?.focus());
-document.querySelectorAll('.doodle-game-shots img,.neon-gallery img,.fridge-screenshots img,.staridol-screenshots img,.denier-screenshots img').forEach(img => {
+document.querySelectorAll('.baylife-screenshots img,.doodle-game-shots img,.neon-gallery img,.fridge-screenshots img,.staridol-screenshots img,.denier-screenshots img').forEach(img => {
   img.classList.add('image-open');
   img.tabIndex = 0;
   img.setAttribute('role', 'button');
@@ -108,13 +108,14 @@ document.querySelectorAll('.doodle-game-shots img,.neon-gallery img,.fridge-scre
 
 window.addEventListener('resize', updateProgress, { passive: true });
 
-// Shared large screenshot carousel behavior for Staridol, Denier Lab, Mini Fridge, and Doodle Dolls.
+// Shared large screenshot carousel behavior for Bay Life, Staridol, Denier Lab, Mini Fridge, and Doodle Dolls.
 function initScreenshotGallery(project, prefix) {
   const root = document.getElementById(project);
   const track = root?.querySelector(
     project === 'dolls' ? '.doodle-game-shots' :
     project === 'staridol' ? '.staridol-screenshots' :
     project === 'denier' ? '.denier-screenshots' :
+    project === 'baylife' ? '.baylife-screenshots' :
     '.fridge-screenshots'
   );
   const count = root?.querySelector('.' + prefix + '-gallery-count');
@@ -145,6 +146,7 @@ function initScreenshotGallery(project, prefix) {
   window.addEventListener('resize', refresh, { passive: true });
   refresh();
 }
+initScreenshotGallery('baylife', 'baylife');
 initScreenshotGallery('fridge', 'fridge');
 initScreenshotGallery('dolls', 'doodle');
 initScreenshotGallery('staridol', 'staridol');
